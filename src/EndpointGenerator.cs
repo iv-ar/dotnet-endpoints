@@ -1,5 +1,3 @@
-using System.Text;
-using System.Text.Json;
 using System.Text.RegularExpressions;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -62,6 +60,7 @@ public class EndpointGenerator : ISourceGenerator
 
     private string GetSyncSource(string className, string namespaceName) {
         return $@"
+{SourceGenereatedComment}
 namespace {namespaceName};
 public static partial class SyncEndpoint<T{className}>
 {{
@@ -100,6 +99,7 @@ public static partial class SyncEndpoint<T{className}>
 
     private string GetAsyncSource(string className, string namespaceName) {
         return $@"
+{SourceGenereatedComment}
 namespace {namespaceName};
 public static partial class AsyncEndpoint<T>
 {{
@@ -146,11 +146,11 @@ public static partial class AsyncEndpoint<T>
     static string GetNamespace(BaseTypeSyntax syntax) {
         // If we don't have a namespace at all we'll return an empty string
         // This accounts for the "default namespace" case
-        string nameSpace = string.Empty;
+        var nameSpace = string.Empty;
 
         // Get the containing syntax node for the type declaration
         // (could be a nested type, for example)
-        SyntaxNode? potentialNamespaceParent = syntax.Parent;
+        var potentialNamespaceParent = syntax.Parent;
 
         // Keep moving "out" of nested classes etc until we get to a namespace
         // or until we run out of parents
@@ -182,74 +182,3 @@ public static partial class AsyncEndpoint<T>
         return nameSpace;
     }
 }
-
-
-/*
-    public static class Req<TRequest> : BaseEndpoint
-    {
-        public abstract class Res<TResponse> : BaseEndpoint
-        {
-            public abstract Task<TResponse> HandleAsync(
-                TRequest request,
-                CancellationToken cancellationToken = default
-            );
-        }
-
-        public abstract class NoRes
-        {
-            public abstract Task HandleAsync(
-                TRequest request,
-                CancellationToken cancellationToken = default
-            );
-        }
-    }
-
-    public static class NoReq
-    {
-        public abstract class Res<TResponse>
-        {
-            public abstract Task<TResponse> HandleAsync(
-                CancellationToken cancellationToken = default
-            );
-        }
-
-        public abstract class NoRes
-        {
-            public abstract Task HandleAsync(
-                CancellationToken cancellationToken = default
-            );
-        }
-    }
- */
-
-/*
-    public static class Req<TRequest>
-    {
-        public abstract class Res<TResponse>
-        {
-            public abstract TResponse Handle(
-                TRequest request
-            );
-        }
-
-        public abstract class NoRes
-        {
-            public abstract void Handle(
-                TRequest request
-            );
-        }
-    }
-
-    public static class NoReq
-    {
-        public abstract class Res<TResponse>
-        {
-            public abstract TResponse Handle();
-        }
-
-        public abstract class NoRes
-        {
-            public abstract void Handle();
-        }
-    }
- */

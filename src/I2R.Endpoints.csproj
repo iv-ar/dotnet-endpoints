@@ -2,7 +2,18 @@
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
-        
+        <PackageProjectUrl>https://git.ivar.systems/dotnet-endpoints</PackageProjectUrl>
+        <PackageLicenseUrl>https://git.ivar.systems/dotnet-endpoints/tree/COPYING</PackageLicenseUrl>
+        <RepositoryUrl>https://git.ivar.systems/dotnet-endpoints</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageVersion>1.0.0</PackageVersion>
+        <Title>I2R.Endpoints</Title>
+        <Authors>Ivar Løvlie</Authors>
+        <Description>A library that enables single file endpoints (or whatever).</Description>
+        <Copyright>Ivar Løvlie</Copyright>
+        <PackageReleaseNotes>
+            Initial realease.
+        </PackageReleaseNotes>
     </PropertyGroup>
     <ItemGroup>
         <FrameworkReference Include="Microsoft.AspNetCore.App" />
