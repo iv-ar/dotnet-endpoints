@@ -1,6 +1,6 @@
 namespace I2R.Endpoints;
 
-public static partial class SyncEndpoint<BaseEndpoint>
+public static partial class SyncEndpoint<TBaseEndpoint>
 {
     public static class Req<TRequest>
     {

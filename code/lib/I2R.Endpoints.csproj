@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
-        <PackageProjectUrl>https://git.ivar.systems/dotnet-endpoints</PackageProjectUrl>
         <PackageLicenseUrl>https://git.ivar.systems/dotnet-endpoints/tree/COPYING</PackageLicenseUrl>
         <RepositoryUrl>https://git.ivar.systems/dotnet-endpoints</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageVersion>1.0.0</PackageVersion>
+        <PackageVersion>1.1.0</PackageVersion>
         <Title>I2R.Endpoints</Title>
         <Authors>Ivar Løvlie</Authors>
         <Description>A library that enables single file endpoints (or whatever).</Description>
@@ -14,13 +14,17 @@
         <PackageReleaseNotes>
             Initial realease.
         </PackageReleaseNotes>
+        <IsPackable>true</IsPackable>
     </PropertyGroup>
+
     <ItemGroup>
-        <FrameworkReference Include="Microsoft.AspNetCore.App" />
-        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.3">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.4.0" />
+        <ProjectReference Include="..\source-generator\I2R.Endpoints.Generator.csproj"
+                          OutputItemType="Analyzer"
+                          ReferenceOutputAssembly="false"/>
     </ItemGroup>
+    
+    <ItemGroup>
+        <AnalyzerReference Include="..\source-generator\I2R.Endpoints.Generator.csproj"/>
+    </ItemGroup>
+
 </Project>

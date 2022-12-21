@@ -1,6 +1,6 @@
 namespace I2R.Endpoints;
 
-public static partial class AsyncEndpoint<BaseEndpoint>
+public static partial class AsyncEndpoint<TBaseEndpoint>
 {
     public static class Req<TRequest>
     {

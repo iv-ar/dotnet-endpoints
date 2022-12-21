@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "I2R.Endpoints", "src\I2R.Endpoints.csproj", "{7A6F787E-4FB2-42BB-B143-60D9399AB4BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "I2R.Endpoints", "code\lib\I2R.Endpoints.csproj", "{7A6F787E-4FB2-42BB-B143-60D9399AB4BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "I2R.Endpoints.Generator", "code\source-generator\I2R.Endpoints.Generator.csproj", "{7A6F787E-4FB2-42BB-B143-60D9399AB4BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
